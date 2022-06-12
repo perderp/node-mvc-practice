@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Local style sheet relative to workspace folder -->
+    <!-- <link rel="stylesheet" type="text/css" href="../css/index.css" /> -->
+    <title>INDEX DATA SAMPLE</title>
+</head>
+<body>
+    <h1 class="sendData">SEND DATA</h1>
+    <form action="/addData" method="POST">
+        <input type="text" name="first_name" id="" placeholder="First-name">
+        <input type="text" name="last_name" id=""  placeholder="Last-name" >
+        <input type="number" name="age" id=""  placeholder="age" value="1">
+        <input type="submit" value="Submit">
+    </form>
+
+    <%if(data <= 0) {%>
+        <h2> NO DATA</h2>
+    <% }else{ %>
+        <h2>VIEW DATA</h2>
+    <%} %>
+    <% data.forEach( (user) => { %>
+        <li style="display:flex;">
+            <p >
+                <span > <%=user.first_name %> </span>
+                <span > <%=user.last_name %> </span>
+                <span > <%=user.age %> </span>
+                <a href="/deleteData/<%=user.id %>">Delete</a>
+                <a href="/updateData/<%=user.id %>">Update</a>
+            </p>
+        </li>
+    <% }) %>
+</body>
+</html>
